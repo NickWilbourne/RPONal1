@@ -45,6 +45,10 @@ int parse_operation(Stack *s, const char *string) {
 		val = stack_pop(s);
 		val2 = stack_pop(s);
 		stack_push(s, val2 - val);
+	} else if (!strcmp(string, "MUL")) {
+		val = stack_pop(s);
+		val2 = stack_pop(s);
+		stack_push(s, val2 * val);
 	} else if (!strcmp(string, "QUIT")) {
 		return 1;
 	} else {
