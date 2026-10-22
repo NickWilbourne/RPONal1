@@ -37,15 +37,15 @@ int parse_operation(Stack *s, const char *string) {
 	float val2;
 	if (conv_ret != string) {
 		stack_push(s, val);
-	} else if (strcmp(string, "ADD")) {
+	} else if (!strcmp(string, "ADD")) {
 		val = stack_pop(s);
 		val2 = stack_pop(s);
 		stack_push(s, val + val2);
-	} else if (strcmp(string, "SUB")) {
+	} else if (!strcmp(string, "SUB")) {
 		val = stack_pop(s);
 		val2 = stack_pop(s);
 		stack_push(s, val2 - val);
-	} else if (strcmp(string, "QUIT")) {
+	} else if (!strcmp(string, "QUIT")) {
 		return 1;
 	} else {
 		fprintf(stderr, "Invalid value or operation!\n");
