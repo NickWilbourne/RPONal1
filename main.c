@@ -76,8 +76,6 @@ void clear_stack(Stack *s) {
 
 int main() {
 
-	printf("Hello World!\n");
-
 	Stack mainStack;
 	while (1) {
 		char inputstr[21];
