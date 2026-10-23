@@ -58,6 +58,9 @@ int parse_operation(Stack *s, const char *string) {
 		val2 = stack_pop(s);
 		stack_push(s, val);
 		stack_push(s, val2);
+	} else if (!strcmp(string, "INC")) {
+		val = stack_pop(s);
+		stack_push(s, val + 1);
 	} else if (!strcmp(string, "QUIT")) {
 		return 1;
 	} else {
