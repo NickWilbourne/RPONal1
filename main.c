@@ -114,6 +114,6 @@ int main() {
 		print_stack(&mainStack);
 	}
 	clear_stack(&mainStack);
-
+	printf("Goodbye!\n");
 	return 0;
 }
