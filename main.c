@@ -69,6 +69,9 @@ int parse_operation(Stack *s, const char *string) {
 	} else if (!strcmp(string, "DEC")) {
 		val = stack_pop(s);
 		stack_push(s, val - 1);
+	} else if (!strcmp(string, "LOG")) {
+		val = stack_pop(s);
+		stack_push(s, log10f(val));
 	} else if (!strcmp(string, "QUIT")) {
 		return 1;
 	} else {
