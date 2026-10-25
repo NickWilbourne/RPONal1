@@ -4,9 +4,9 @@ Kalkulator ki uporablja post-fix notacijo.
 
 ## Kompilacija
 
-'''
+```
 make all
-'''
+```
 
 ## Operacije
 
