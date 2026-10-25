@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,30 +35,34 @@ float stack_pop(Stack *s) {
 int parse_operation(Stack *s, const char *string) {
 	char *conv_ret;
 	float val = strtod(string, &conv_ret);
-	float val2;
+	float val_low;
 	if (conv_ret != string) {
 		stack_push(s, val);
 	} else if (!strcmp(string, "ADD")) {
 		val = stack_pop(s);
-		val2 = stack_pop(s);
-		stack_push(s, val + val2);
+		val_low = stack_pop(s);
+		stack_push(s, val + val_low);
 	} else if (!strcmp(string, "SUB")) {
 		val = stack_pop(s);
-		val2 = stack_pop(s);
-		stack_push(s, val2 - val);
+		val_low = stack_pop(s);
+		stack_push(s, val_low - val);
 	} else if (!strcmp(string, "DIV")) {
 		val = stack_pop(s);
-		val2 = stack_pop(s);
-		stack_push(s, val2 / val);
+		val_low = stack_pop(s);
+		stack_push(s, val_low / val);
 	} else if (!strcmp(string, "MUL")) {
 		val = stack_pop(s);
-		val2 = stack_pop(s);
-		stack_push(s, val2 * val);
+		val_low = stack_pop(s);
+		stack_push(s, val_low * val);
 	} else if (!strcmp(string, "EXCH")) {
 		val = stack_pop(s);
-		val2 = stack_pop(s);
+		val_low = stack_pop(s);
 		stack_push(s, val);
-		stack_push(s, val2);
+		stack_push(s, val_low);
+	} else if (!strcmp(string, "POW")) {
+		val = stack_pop(s);
+		val_low = stack_pop(s);
+		stack_push(s, powf(val_low, val));
 	} else if (!strcmp(string, "INC")) {
 		val = stack_pop(s);
 		stack_push(s, val + 1);
