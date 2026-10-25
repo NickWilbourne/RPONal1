@@ -4,4 +4,4 @@
 
 
 all:
-	gcc -x c -o build/rplcalc main.c
+	gcc -x c -g -o build/rplcalc main.c -lm
